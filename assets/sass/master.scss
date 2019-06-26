@@ -11,12 +11,19 @@ body {
   background-color: $main-background-color  ;
 }
 .card-table {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+
 
 }
 .flip-card {
   border: 2px solid $card-border-color;
   border-radius: 10px;
+
 }
+
 img {
   border: 2px hidden;
   border-radius: 10px;
