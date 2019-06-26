@@ -20,6 +20,11 @@ body {
 .flip-card {
   border: 2px solid #576dff;
   border-radius: 10px;
+  position: relative;
+}
+
+flip-card-front {
+  position: absolute;
 }
 
 img {

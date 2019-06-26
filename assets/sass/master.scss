@@ -21,9 +21,11 @@ body {
 .flip-card {
   border: 2px solid $card-border-color;
   border-radius: 10px;
-
+  position: relative;
 }
-
+flip-card-front {
+  position: absolute;
+}
 img {
   border: 2px hidden;
   border-radius: 10px;
