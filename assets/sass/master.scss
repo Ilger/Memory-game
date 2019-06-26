@@ -1,5 +1,5 @@
-$mainBackgroundColor: hsla(56, 100%, 67%, 1);
-
+$main-background-color: hsla(56, 100%, 67%, 1);
+$card-border-color: hsla(232, 100%, 67%, 1);
 * {
   padding: 0;
   margin: 0;
@@ -8,5 +8,16 @@ $mainBackgroundColor: hsla(56, 100%, 67%, 1);
 body {
   height: 100vh;
   display: flex;
-  background-color: $mainBackgroundColor;
+  background-color: $main-background-color  ;
+}
+.card-table {
+
+}
+.flip-card {
+  border: 2px solid $card-border-color;
+  border-radius: 5px;
+}
+img {
+  width: 100px;
+  height: 100px;
 }
