@@ -1,18 +1,60 @@
+const cards = document.querySelectorAll('.memory-card');
 
-let flipCard = document.getElementsByClassName('flipCard');
-let card1 = document.getElementById('a1')
-let flipCardInner = document.getElementsByClassName('flip-card-inner');
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
 
-// /* Do an horizontal flip when you move the mouse over the flip box container */
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
 
-//
-// let selectRandom = (array) => array[Math.floor(Math.random()* array.length)];
+  this.classList.add('flip');
 
-function buttonClick (buttonId, executeFn) { buttonId.addEventListener('hover', executeFn);
-};
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
 
-function flip () {
-  card1.style.transform = 'rotateY(180deg)';
-};
+    return;
+  }
 
-buttonClick(card1, flip);
+  secondCard = this;
+  checkForMatch();
+}
+
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+  isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  resetBoard();
+}
+
+function unflipCards() {
+  lockBoard = true;
+
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+
+    resetBoard();
+  }, 1500);
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+cards.forEach(card => card.addEventListener('click', flipCard));
