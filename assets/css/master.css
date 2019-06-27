@@ -7,40 +7,69 @@
 body {
   height: 100vh;
   display: flex;
-  background-color: #fff457;
+  flex-direction: column;
+  background: #fff457;
 }
 
 .table {
-  width: 800px;
-  height: 800px;
+  width: 640px;
+  height: 640px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .card {
-  border: 2px solid #576dff;
-  border-radius: 10px;
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
   position: relative;
-  margin: 10px background-color;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-card-back,
-card-face {
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card-back-face,
+.card-front-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
   position: absolute;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.card-front-face {
+  transform: rotateY(180deg);
+  background-color: #57ff57;
+}
+
+.card-back-face {
   background-color: #57cdff;
 }
 
-img {
-  border: 2px hidden;
-  border-radius: 10px;
-  width: 100px;
-  height: 100px;
-}
-
-card-face {
-  width: 100%;
-  height: 100%;
+.icon-credits {
+  bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: static;
 }
 
 /*# sourceMappingURL=master.css.map */
