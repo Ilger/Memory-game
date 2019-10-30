@@ -13,6 +13,11 @@ body {
   background: $main-background-color;
   min-height: 100vh;
 }
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 80%
+}
 .table {
   width: 600px;
   height: 630px;

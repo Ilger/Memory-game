@@ -3,7 +3,10 @@ const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
+let scoreboard =  <section class="scoreboard">
+                    <div class="player1">P1: ${scoreP1}</div>
+                    <div class="player2">P2: ${scoreP2}</div>
+                  </section>;
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
